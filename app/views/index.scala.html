@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <link rel="shortcut icon" href="@routes.Assets.at("images/favicon.png")">
-    <link rel="stylesheet" href="@routes.Assets.at("stylesheets/index.css")"/>
+    <link rel="stylesheet" href="@routes.Assets.at("stylesheets/custom.css")"/>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
 
@@ -34,16 +34,15 @@
                 <li><a href="#formModal" data-toggle="modal" data-target="#formModal">Criar Anúncio<span class="navbar-unread"></span></a></li>
             </ul>
 
-            <form id="busca" class="navbar-form navbar-center" action="#" role="search">
-                <div class="form-group">
-                    <div class="input-group">
-                        <input id="busca" class="form-control" type="search" placeholder="Search">
-                    <span class="input-group-btn">
-                      <button type="submit" class="btn"><span class="glyphicon glyphicon-search"></span></button>
-                    </span>
-                    </div>
-                </div>
+            <form class="navbar-form pull-center">
+                <div class="input-group" style="max-width : 470 px">
+                    <input id="busca" title="Separe os termos com vírgulas." type="text" class="form-control" placeholder="Search"
+                           name="srch-term"
+                           id="srch-term">
+                    <div class="input-group-btn">
+                        <button type="submit" class="btn"><span class="glyphicon glyphicon-search"></span></button>
             </form>
+
 
         </div><!-- /.navbar-collapse -->
     </nav><!-- /navbar -->

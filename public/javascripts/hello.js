@@ -13,12 +13,12 @@ function busca() {
 
     buscaInputTermos[buscaInputTermos.length - 1] = buscaInputTermos[buscaInputTermos.length - 1].trim();
 
-
+    console.log(buscaInputTermos);
 
     for (var i = 0; i < anuncios.length; i++) {
       anuncio = $(anuncios[i]); // Wrap em jQuery
       resultado = true;
-      console.log(anuncios);
+
       if (instrumentos) {
         for (var j = 0; j < buscaInputTermos.length; j++) {
 
