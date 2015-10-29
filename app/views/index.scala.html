@@ -1,0 +1,239 @@
+@(anuncios: List[Anuncio])(erro: Boolean)(finalizados: Integer)
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html">
+    <title>Fun Music ADS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="shortcut icon" href="@routes.Assets.at("images/favicon.png")">
+    <link rel="stylesheet" href="@routes.Assets.at("stylesheets/index.css")"/>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+
+
+
+
+
+
+</head>
+<body>
+
+<div class="col-xs-12">
+    <nav class="navbar navbar-inverse navbar-embossed" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
+                <span class="sr-only">Toggle navigation</span>
+            </button>
+            <a class="navbar-brand" href="#">Fun Music ADS</a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-collapse-01">
+            <ul class="nav navbar-nav navbar-left">
+                <li><a href="#formModal" data-toggle="modal" data-target="#formModal">Criar Anúncio<span class="navbar-unread"></span></a></li>
+            </ul>
+
+            <form id="busca" class="navbar-form navbar-center" action="#" role="search">
+                <div class="form-group">
+                    <div class="input-group">
+                        <input id="busca" class="form-control" type="search" placeholder="Search">
+                    <span class="input-group-btn">
+                      <button type="submit" class="btn"><span class="glyphicon glyphicon-search"></span></button>
+                    </span>
+                    </div>
+                </div>
+            </form>
+
+        </div><!-- /.navbar-collapse -->
+    </nav><!-- /navbar -->
+</div>
+
+    <div class="container">
+
+
+
+
+
+
+
+
+
+
+        <div class="modal fade" id="formModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Anúncio</h4>
+                    </div>
+
+                    <div class="modal-body">
+                        <form action="@routes.Application.novoAnuncio()" method="POST">
+                            <div class="form-group">
+                                <label for="inputTitulo">Nome</label>
+                                <input name="titulo" type="text" class="form-control" id="inputTitulo" placeholder="Meu anúncio" required pattern=".*\S+.*">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inputDescricao">Descrição</label>
+                                <textarea name="descricao" class="form-control" id="inputDescricao" placeholder="Meu anúncio pretende..." required pattern=".*\S+.*"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inputCidade">Cidade</label>
+                                <input name="cidade" type="text" class="form-control" id="inputCidade" placeholder="Campina Grande" required pattern=".*\S+.*">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inputBairro">Bairro</label>
+                                <input name="bairro" type="text" class="form-control" id="inputBairro" placeholder="Centro" required pattern=".*\S+.*">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inputInstrumentos">Instrumentos que toco</label>
+                                <input name="instrumentos" type="text" class="form-control" id="inputInstrumentos" placeholder="Sanfona, Flauta" required pattern=".*\S+.*">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inputEstilos">Estilos que curto</label>
+                                <input name="estilos" type="text" class="form-control" id="inputEstilos" placeholder="Pop, Forró">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inputEstilosBanidos">Estilos que não curto</label>
+                                <input name="estilosBanidos" type="text" class="form-control" id="inputEstilosBanidos" placeholder="Teckno, Funk">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inputContatos">Contatos</label>
+                                <input name="contatos" type="text" class="form-control" id="inputContatos" placeholder="anunciante at outlook.com / instagram/anunciante"
+                                       required pattern=".*\S+.*">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inputCodigo">Código</label>
+                                <input name="codigo" type="text" class="form-control" id="inputCodigo" placeholder="palavra secreta" required pattern=".*\S+.*">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Interesses</label>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="interesse" id="inputContatos1" value="Banda" required>
+                                        Formar uma banda
+                                    </label>
+                                </div>
+
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="interesse" id="inputContatos2" value="Ocasionalmente" required>
+                                        Tocar ocasionalmente
+                                    </label>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Enviar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!--main-->
+        <div class="container" id="main">
+            @if(erro) {
+            <div id="erroAlerta" class="alert alert-danger alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                O código que você inseriu está incorreto.
+            </div>
+            }
+
+            <div id="anuncios" class="row">
+
+                @for(anuncio <- anuncios) {
+                <div class="col-md-4 col-sm-6 anuncio">
+                    <div class="panel panel-default">
+                        <div class="panel-heading"><a href="" data-toggle="modal" data-target="#finalizarModal" class="pull-right finalizarAnuncio">Finalizar</a> <h4
+                                class="anuncioTitulo">@anuncio.getTitulo()</h4></div>
+                        <div class="panel-body">
+                            <p>@anuncio.getDescricao()</p>
+                            <div class="clearfix"></div>
+                            <hr>
+
+                            <p><strong>Cidade:</strong> @anuncio.getCidade()</p>
+                            <p><strong>Bairro:</strong> @anuncio.getBairro()</p>
+
+                            <p class="anuncioInstrumentos"><strong>Instrumentos:</strong> @anuncio.getInstrumentos()</p>
+                            @if(!anuncio.isEstilosEmpty) {
+                            <p class="anuncioEstilos"><strong>Estilos que gosta:</strong> @anuncio.getEstilos()</p>
+                            }
+                            @if(!anuncio.isEstilosBanidosEmpty) {
+                            <p><strong>Estilos que não gosta:</strong> @anuncio.getEstilosBanidos()</p>
+                            }
+
+                            <p><strong>Contatos:</strong> @anuncio.getContatos()</p>
+                            <p class="anuncioInteresse"><strong>Interesse:</strong> @anuncio.getInteresses()</p>
+
+                            <hr>
+
+                            <div class="input-group">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-default"><i class="glyphicon glyphicon-share"></i></button>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Faça uma pergunta">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="finalizarModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title">Insira o código do seu anúncio</h4>
+                            </div>
+
+                            <div class="modal-body">
+                                <form action="@routes.Application.finalizaAnuncio(anuncio.getCodigo(), anuncio.getId())" method="POST">
+                                    <div class="form-group">
+                                        <input name="finalizar" type="text" class="form-control" id="inputFinalizar" placeholder="Código do seu anúncio" required pattern=".*\S+.*">
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary">Enviar</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                }
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+    <script src="@routes.Assets.at("javascripts/hello.js")"></script>
+
+
+
+</body>
+</html>
