@@ -59,10 +59,7 @@ public class Application extends Controller {
         if (codigoForm.equals(codigo)) {
             DAO.removeById(Anuncio.class, id);
             DAO.flush();
-
-//            if (encontrouParceiros.equals("Sim")) {
-//                anunciosFinalizados++;
-//            }
+            anunciosFinalizados++;
 
             return anuncios();
         } else {
