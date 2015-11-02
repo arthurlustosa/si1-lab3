@@ -70,41 +70,41 @@ public class Application extends Controller {
         }
     }
 
-//    @Transactional
-//    public static Result fazerPergunta(Long id) {
-//        Form<String> formPerguntaPreenchido = formString.bindFromRequest();
-//        String pergunta = formPerguntaPreenchido.data().get("pergunta");
-//
-//        Anuncio anuncio = DAO.findByEntityId(Anuncio.class, id);
-//        anuncio.fazerPergunta(pergunta);
-//
-//        DAO.persist(anuncio);
-//        DAO.flush();
-//
-//        return anuncios();
-//    }
-//
-//    @Transactional
-//    public static Result responderPergunta(Long idConversa, Long id) {
-//        Form<String> formRespostaPreenchido = formString.bindFromRequest();
-//        String resposta = formRespostaPreenchido.data().get("resposta");
-//        String codigo = formRespostaPreenchido.data().get("codigo");
-//
-//        Anuncio anuncio = DAO.findByEntityId(Anuncio.class, id);
-//
-//        try {
-//            anuncio.responderPergunta(idConversa, resposta, codigo);
-//        } catch (Exception e) {
-//            List<Anuncio> resultado = DAO.findAllByClass(Anuncio.class);
-//            Collections.sort(resultado);
-//
-//            return badRequest(index.render(resultado, false, anunciosFinalizados));
-//        }
-//
-//        DAO.persist(anuncio);
-//        DAO.flush();
-//
-//        return anuncios();
-//    }
+    @Transactional
+    public  Result fazerPergunta(Long id) {
+        Form<String> formPerguntaPreenchido = formString.bindFromRequest();
+        String pergunta = formPerguntaPreenchido.data().get("pergunta");
+
+        Anuncio anuncio = DAO.findByEntityId(Anuncio.class, id);
+        anuncio.fazerPergunta(pergunta);
+
+        DAO.persist(anuncio);
+        DAO.flush();
+
+        return anuncios();
+    }
+
+    @Transactional
+    public  Result responderPergunta(Long idConversa, Long id) {
+        Form<String> formRespostaPreenchido = formString.bindFromRequest();
+        String resposta = formRespostaPreenchido.data().get("resposta");
+        String codigo = formRespostaPreenchido.data().get("codigo");
+
+        Anuncio anuncio = DAO.findByEntityId(Anuncio.class, id);
+
+        try {
+            anuncio.responderPergunta(idConversa, resposta, codigo);
+        } catch (Exception e) {
+            List<Anuncio> resultado = DAO.findAllByClass(Anuncio.class);
+            Collections.sort(resultado);
+
+            return badRequest(index.render(resultado, false, anunciosFinalizados));
+        }
+
+        DAO.persist(anuncio);
+        DAO.flush();
+
+        return anuncios();
+    }
 
 }
