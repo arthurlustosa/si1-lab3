@@ -1,14 +1,13 @@
 package models;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import java.util.List;
 
 @Entity
-public class Anuncio implements Comparable<Anuncio>{
+public class Anuncio implements Comparable<Anuncio> {
+
 	@Id
     @GeneratedValue
 	private Long id;
@@ -32,13 +31,17 @@ public class Anuncio implements Comparable<Anuncio>{
 	private String codigo;
 	@Column
 	private String interesses;
-    @Temporal(TemporalType.DATE)
-    private Date data = new Date();
+	@OneToMany(cascade = CascadeType.ALL)
 
-    public Anuncio(){
-    	
-    }
-	
+	private List<Conversa> conversas;
+
+	@Temporal(TemporalType.DATE)
+	private Date data = new Date();
+
+	public Anuncio() {
+		this.conversas = new ArrayList<>();
+	}
+
 	public Anuncio(String titulo, String descricao, String cidade,
 			String bairro, String instrumentos, String estilos,
 			String estilosBanidos, String contatos, String interesses, String codigo)
@@ -55,6 +58,7 @@ public class Anuncio implements Comparable<Anuncio>{
 		this.contatos = contatos;
 		this.interesses = interesses;
 		this.codigo = codigo;
+		this.conversas = new ArrayList<>();
 
 	}
 
@@ -161,6 +165,7 @@ public class Anuncio implements Comparable<Anuncio>{
     public boolean isEstilosBanidosEmpty() {
         return this.estilosBanidos.length() == 0;
     }
+
 	private void verificaValidadeDosParametros(String titulo, String descricao,
 			String cidade, String bairro, String instrumentos, String contatos,
 			String interesses, String codigo) throws Exception {
@@ -192,6 +197,39 @@ public class Anuncio implements Comparable<Anuncio>{
 			throw new Exception(
 					"Os interesses nao podem ser invalidos para criacao de um anuncio");
 		}
+	}
+
+	public void fazerPergunta(String pergunta) {
+		try {
+			conversas.add(new Conversa(pergunta));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void responderPergunta(Long idConversa, String resposta, String codigo) throws Exception {
+		if (!codigo.equals(this.codigo)) {
+			throw new Exception("Somente quem tem o codigo do anúncio pode responder perguntas.");
+		}
+
+		for (Conversa conversa : conversas) {
+			if (conversa.getId().equals(idConversa)) {
+				try {
+					conversa.setResposta(resposta);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				break;
+			}
+		}
+	}
+
+	public List<Conversa> getConversas() {
+		return conversas;
+	}
+
+	public void setConversas(List<Conversa> conversas) {
+		this.conversas = conversas;
 	}
 
 	@Override
