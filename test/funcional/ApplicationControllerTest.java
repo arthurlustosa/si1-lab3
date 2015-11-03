@@ -1,4 +1,4 @@
-package funcional;
+package funcionntroal;
 
 import controllers.Application;
 import models.Anuncio;
@@ -22,7 +22,7 @@ import java.util.Map;
 import static org.fest.assertions.Assertions.assertThat;
 import static play.test.Helpers.*;
 
-public class ApplicationTest {
+public class ApplicationControllerTest {
     private static FakeApplication app;
     public EntityManager em;
     private GenericDAO DAO = new GenericDAO();
