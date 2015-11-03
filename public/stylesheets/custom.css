@@ -1,8 +1,8 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:400);
 
 .buscaFiltro {
-    background: none;
-    border: none;
+    background: #000;
+    border: #000;
 }
 
 .nav-center {
