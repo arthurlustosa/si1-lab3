@@ -59,7 +59,10 @@ public class Application extends Controller {
         if (codigoForm.equals(codigo)) {
             DAO.removeById(Anuncio.class, id);
             DAO.flush();
-            anunciosFinalizados++;
+
+            if (encontrouParceiros.equals("Sim")) {
+                anunciosFinalizados++;
+            }
 
             return anuncios();
         } else {
@@ -69,6 +72,7 @@ public class Application extends Controller {
             return ok(index.render(resultado, true, anunciosFinalizados));
         }
     }
+
 
     @Transactional
     public  Result fazerPergunta(Long id) {

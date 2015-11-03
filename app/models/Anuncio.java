@@ -33,7 +33,7 @@ public class Anuncio implements Comparable<Anuncio> {
 	private String interesses;
 	@OneToMany(cascade = CascadeType.ALL)
 
-	private List<Conversa> conversas;
+	private List<Chat> conversas;
 
 	@Temporal(TemporalType.DATE)
 	private Date data = new Date();
@@ -201,7 +201,7 @@ public class Anuncio implements Comparable<Anuncio> {
 
 	public void fazerPergunta(String pergunta) {
 		try {
-			conversas.add(new Conversa(pergunta));
+			conversas.add(new Chat(pergunta));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -212,7 +212,7 @@ public class Anuncio implements Comparable<Anuncio> {
 			throw new Exception("Somente quem tem o codigo do anúncio pode responder perguntas.");
 		}
 
-		for (Conversa conversa : conversas) {
+		for (Chat conversa : conversas) {
 			if (conversa.getId().equals(idConversa)) {
 				try {
 					conversa.setResposta(resposta);
@@ -224,11 +224,11 @@ public class Anuncio implements Comparable<Anuncio> {
 		}
 	}
 
-	public List<Conversa> getConversas() {
+	public List<Chat> getConversas() {
 		return conversas;
 	}
 
-	public void setConversas(List<Conversa> conversas) {
+	public void setConversas(List<Chat> conversas) {
 		this.conversas = conversas;
 	}
 

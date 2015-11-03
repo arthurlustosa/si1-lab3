@@ -1,9 +1,9 @@
 
 import models.Anuncio;
-        import play.*;
+import play.*;
 
-        import models.dao.GenericDAO;
-        import play.db.jpa.JPA;
+import models.dao.GenericDAO;
+import play.db.jpa.JPA;
 
 
 public class Global extends GlobalSettings {
