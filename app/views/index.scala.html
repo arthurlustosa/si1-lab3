@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="content-type" content="text/html">
-    <title>Fun Music ADS</title>
+    <title>AdMusic</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <link rel="shortcut icon" href="@routes.Assets.at("images/favicon.png")">
@@ -33,7 +33,7 @@
         <ul class="sidebar-nav">
             <li class="sidebar-brand">
                 <a href="#">
-                    Fun Music ADS
+                    AdMusic
                 </a>
             </li>
             <li>
@@ -45,29 +45,36 @@
                         <input id="busca" title="Separe os termos com vírgulas." type="text" class="form-control" placeholder="Encontre seu anúncio"
                                name="srch-term"
                                id="srch-term">
+                                <button type="submit" class="btn"><span class="glyphicon glyphicon-search"></span></button>
                         <div class="input-group-btn">
-                            <button type="submit" class="btn"><span class="glyphicon glyphicon-search"></span></button>
+                           <!-- <button type="submit" class="btn"><span class="glyphicon glyphicon-search"></span></button> -->
                         </div>
                     </div>
                         <li>
+                            <a href="#">
                             <input id="checkInstrumentos" type="checkbox" aria-label="...">
                             Instrumentos
-
+                            </a>
                         </li>
                         <li>
-                            <span class="input-group-addon buscaFiltro">
-                                <input id="checkEstilos" type="checkbox" aria-label="...">
-                                Estilos preferidos
-                            </span>
+                            <a href="#">
+                            <input id="checkEstilos" type="checkbox" aria-label="...">
+                            Estilos preferidos
+                            </a>
                         </li>
                         <li>
-                            <span class="input-group-addon buscaFiltro">
-                                <input id="checkInteresse" type="checkbox" aria-label="...">
-                                Interesse
-                            </span>
+                            <a href="#">
+                            <input id="checkInteresse" type="checkbox" aria-label="...">
+                            Interesse
+                            </a>
                         </li>
 
                 </form>
+            </li>
+            <li>
+                <a href="#">
+                <i class="fa fa-dashboard"></i> @finalizados Anúncios Finalizados
+                </a>
             </li>
             <li>
                 <a href="#">About</a>
