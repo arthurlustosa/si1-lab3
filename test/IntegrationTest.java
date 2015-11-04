@@ -21,7 +21,7 @@ public class IntegrationTest extends WithBrowser {
     @Test
     public void deveCarregarPaginaPrincipal() {
         browser.goTo("http://localhost:" + testServer.port());
-        assertThat(browser.pageSource()).contains("Fun Music ADS");
+        assertThat(browser.pageSource()).contains("AdMusic");
         assertThat(browser.pageSource()).contains("0 Anúncios finalizados");
     }
 
@@ -34,7 +34,7 @@ public class IntegrationTest extends WithBrowser {
         browser.fill("#inputTitulo").with("Testando pelo código");
         browser.fill("#inputDescricao").with("Anúncio criado nos testes");
         browser.fill("#inputCidade").with("Campina Grande");
-        browser.fill("#inputBairro").with("Bodocongó");
+        browser.fill("#inputBairro").with("Centro");
         browser.fill("#inputInstrumentos").with("Gaita, Violão, Saxofone");
         browser.fill("#inputEstilos").with("Blues, Rock, Jazz");
         browser.fill("#inputEstilosBanidos").with("Pagode, Funk");
