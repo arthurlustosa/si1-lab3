@@ -15,7 +15,7 @@ public class Application extends Controller {
     private static final GenericDAO DAO = new GenericDAO();
     private static Form<Anuncio> form = Form.form(Anuncio.class);
     private static Form<String> formString = Form.form(String.class);
-    private static int anunciosFinalizados = 0;
+    private static int anunciosFinalizados = 15;
 
     @Transactional
     public Result index() {
