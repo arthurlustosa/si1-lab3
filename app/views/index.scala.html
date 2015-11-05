@@ -77,7 +77,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">About</a>
+                <a href="#about" data-toggle="modal" data-target="#about">Sobre<span class="navbar-unread"></span></a>
             </li>
         </ul>
 
@@ -87,102 +87,6 @@
 
     <!-- Page Content -->
     <div id="page-content-wrapper">
-
-
-
-        <div class="row">
-            <div class="col-lg-3 col-md-6">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <i class="fa fa-comments fa-5x"></i>
-                            </div>
-                            <div class="col-xs-9 text-right">
-                                <div class="huge">26</div>
-                                <div>New Comments!</div>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#">
-                        <div class="panel-footer">
-                            <span class="pull-left">View Details</span>
-                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                            <div class="clearfix"></div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <i class="fa fa-comments fa-5x"></i>
-                            </div>
-                            <div class="col-xs-9 text-right">
-                                <div class="huge">26</div>
-                                <div>New Comments!</div>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#">
-                        <div class="panel-footer">
-                            <span class="pull-left">View Details</span>
-                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                            <div class="clearfix"></div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <i class="fa fa-comments fa-5x"></i>
-                            </div>
-                            <div class="col-xs-9 text-right">
-                                <div class="huge">26</div>
-                                <div>New Comments!</div>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#">
-                        <div class="panel-footer">
-                            <span class="pull-left">View Details</span>
-                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                            <div class="clearfix"></div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <i class="fa fa-comments fa-5x"></i>
-                            </div>
-                            <div class="col-xs-9 text-right">
-                                <div class="huge">26</div>
-                                <div>New Comments!</div>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#">
-                        <div class="panel-footer">
-                            <span class="pull-left">View Details</span>
-                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                            <div class="clearfix"></div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-
-
 
         <div class="container-fluid">
             <div class="row">
@@ -200,177 +104,6 @@
                                 <div id="anuncios" class="row">
 
                                     @for(anuncio <- anuncios) {
-
-                                    <div class="col-lg-3 col-md-6">
-                                        <div class="panel panel-primary">
-                                            <div class="panel-heading">
-                                                <div class="row">
-                                                    <div class="col-xs-3">
-                                                        <i class="fa fa-comments fa-5x"></i>
-                                                    </div>
-                                                    <div class="col-xs-9 text-right">
-                                                        <div class="huge">26</div>
-                                                        <div></a> <h4
-                                                                class="anuncioTitulo">@anuncio.getTitulo()</h4></div></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        <div class="panel-body">
-                                            <p>@anuncio.getDescricao()</p>
-                                            <div class="clearfix"></div>
-                                            <hr>
-                                        </div>
-                                            <a href="#">
-                                                <div class="panel-footer">
-                                                    <a href="#exibeAnuncio" data-toggle="modal" data-target="#exibeAnuncio">Detalhes<span class="navbar-unread"></span></a>
-                                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                                    <div class="clearfix"></div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-
-
-
-
-                                    <div class="modal fade" id="exibeAnuncio">
-                                        <div class="modal-dialog">
-                                               <div class="col-md-4 col-sm-6 anuncio">
-                                                        <div class="panel panel-default">
-                                                            <div class="panel-heading"><a href="" data-toggle="modal" data-target="#finalizarModal@anuncio.getId()" class="pull-right
-                                                            finalizarAnuncio">Finalizar</a> <h4
-                                                                    class="anuncioTitulo">@anuncio.getTitulo()</h4></div>
-                                                            <div class="panel-body">
-                                                                <p>@anuncio.getDescricao()</p>
-                                                                <div class="clearfix"></div>
-                                                                <hr>
-
-                                                                <p><strong>Cidade:</strong> @anuncio.getCidade()</p>
-                                                                <p><strong>Bairro:</strong> @anuncio.getBairro()</p>
-
-                                                                <p class="anuncioInstrumentos"><strong>Instrumentos:</strong> @anuncio.getInstrumentos()</p>
-                                                                @if(!anuncio.isEstilosEmpty) {
-                                                                <p class="anuncioEstilos"><strong>Estilos que gosta:</strong> @anuncio.getEstilos()</p>
-                                                                }
-                                                                @if(!anuncio.isEstilosBanidosEmpty) {
-                                                                <p><strong>Estilos que não gosta:</strong> @anuncio.getEstilosBanidos()</p>
-                                                                }
-
-                                                                <p><strong>Contatos:</strong> @anuncio.getContatos()</p>
-                                                                <p class="anuncioInteresse"><strong>Interesse:</strong> @anuncio.getInteresses()</p>
-
-                                                                <hr>
-
-                                                                <form action="@routes.Application.fazerPergunta(anuncio.getId())" method="POST">
-                                                                    <div class="input-group">
-                                                                        <div class="input-group-btn">
-                                                                            <button id="submitFormFazerPergunta@anuncio.getId()" type="submit" class="btn btn-default"><i class="glyphicon glyphicon-share"></i></button>
-                                                                        </div>
-                                                                        <input id="formFazerPergunta@anuncio.getId()" name="pergunta" type="text" class="form-control" placeholder="Faça uma pergunta"
-                                                                               required pattern=".*\S+.*">
-                                                                    </div>
-                                                                </form>
-
-                                                                <hr>
-
-                                                                @for(conversa <- anuncio.getConversas()) {
-                                                                @if(conversa.getPergunta() != null) {
-                                                                <div class="pergunta">
-                                                                    <p>@conversa.getPergunta()</p>
-                                                                </div>
-
-                                                                @if(conversa.getResposta == null) {
-                                                                <a id="botaoResponderPergunta@anuncio.getId()" href="" data-toggle="modal" data-target="#responderModal@conversa.getId()"
-                                                                   class="finalizarAnuncio">Responder</a>
-
-                                                                <div class="modal fade" id="responderModal@conversa.getId()">
-                                                                    <div class="modal-dialog">
-                                                                        <div class="modal-content">
-                                                                            <div class="modal-header">
-                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                                                <h4 class="modal-title">Resposta</h4>
-                                                                            </div>
-
-                                                                            <div class="modal-body">
-                                                                                <form action="@routes.Application.responderPergunta(conversa.getId(), anuncio.getId())" method="POST">
-                                                                                    <div class="form-group">
-                                                                                        <label for="inputCodigo">Código</label>
-                                                                                        <input name="codigo" type="text" class="form-control" id="inputCodigo" placeholder="Código do seu anúncio"
-                                                                                               required pattern=".*\S+.*">
-                                                                                    </div>
-
-                                                                                    <div class="form-group">
-                                                                                        <label>Resposta</label>
-                                                                                        <input name="resposta" type="text" class="form-control" id="inputResposta" placeholder="Sua resposta"
-                                                                                               required pattern=".*\S+.*">
-                                                                                    </div>
-
-                                                                                    <button id="submitResponderPergunta" type="submit" class="btn btn-primary">Enviar</button>
-                                                                                </form>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                }
-                                                                }
-
-                                                                @if(conversa.getResposta != null) {
-                                                                <div class="resposta">
-                                                                    <p>@conversa.getResposta()</p>
-                                                                </div>
-                                                                }
-
-                                                                <hr>
-                                                                }
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="modal fade" id="finalizarModal@anuncio.getId()">
-                                                        <div class="modal-dialog">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                                    <h4 class="modal-title">Insira o código do seu anúncio</h4>
-                                                                </div>
-
-                                                                <div class="modal-body">
-                                                                    <form action="@routes.Application.finalizaAnuncio(anuncio.getCodigo(), anuncio.getId())" method="POST">
-                                                                        <div class="form-group">
-                                                                            <input name="finalizar" type="text" class="form-control" id="inputFinalizar" placeholder="Código do seu anúncio" required pattern=".*\S+.*">
-                                                                        </div>
-
-                                                                        <div class="form-group">
-                                                                            <label>Você encontrou os parceiros que procurava?</label>
-                                                                            <div class="radio">
-                                                                                <label>
-                                                                                    <input type="radio" name="encontrouParceiros" id="inputEncontrou1" value="Sim" required>
-                                                                                    Sim
-                                                                                </label>
-                                                                            </div>
-
-                                                                            <div class="radio">
-                                                                                <label>
-                                                                                    <input type="radio" name="encontrouParceiros" id="inputEncontrou2" value="Não" required>
-                                                                                    Não
-                                                                                </label>
-                                                                            </div>
-                                                                        </div>
-
-                                                                        <button id="submitFinalizar@anuncio.getId()" type="submit" class="btn btn-primary">Enviar</button>
-                                                                    </form>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-
-
-
-                                <!--
 
                                     <div class="col-md-4 col-sm-6 anuncio">
                                         <div class="panel panel-default">
@@ -501,7 +234,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    -->
+
 
                                 }
 
@@ -602,7 +335,31 @@
 
     </div>
 
-<!-- exibe anuncio -->
+<!-- sobre -->
+
+    <div class="container">
+        <div class="modal fade" id="about">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Sobre</h4>
+                    </div>
+
+                    <div class="modal-body">
+                        <p>O AdMusic foi desenvolvido pelo aluno Arthur Lustosa, na disciplina de Sistemas de Informação 1 do curso de Ciência da Computação - UFCG, o código do projeto está disponível no seu <a href="http://www.github.com/si1-lab3">GitHub</a>.</p>
+                        <p>O sistema foi construído com uma infraestrutura utilizando o framework Play, Java, JavaScript, Scala, HTML + CSS + Bootstrap para a persistência de dados o banco de dados utilizado foi o H2.</p>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+        </div>
+
+
+
 
 
 
